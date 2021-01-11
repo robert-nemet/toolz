@@ -4,7 +4,7 @@
 # 
 # Author: robert.nemet@gmail.com
 #
-# Description: Rename files that matches a PATTERN from behind to match pattern with SUFIX and POSTFIX, while PATTERN is removed:
+# Description: Rename files that matches a PATTERN from behind to match pattern with SUFIX and POSTFIX, while PATTERN is removed.
 # 
 # Example: Files mathing *file.xyz are renamed to document-1.txt
 
