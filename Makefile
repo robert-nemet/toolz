@@ -1,6 +1,6 @@
 .PHONY: test
 
-test:
+test: lint
 	bats --tap tests
 
 lint:
