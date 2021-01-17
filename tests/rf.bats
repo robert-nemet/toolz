@@ -16,12 +16,12 @@ teardown() {
 
 @test "rename files with pattern" {
     cd "$BATS_TMPDIR/rf-tmp-$BATS_TEST_NUMBER"
-    run $PATH_TO_RF file.xyz document .txt
-    declare -i cnt=0
+    run $PATH_TO_RF -t -file.xyz -s document- -p .txt
+    cnt=0
     for f in *.txt; do
-        cnt=$cnt+1
+        cnt=$((cnt+1))
     done
-    
+
     [ "$cnt" -eq 10 ]
     [ "$output" == "renamed 10 files." ]
 }
