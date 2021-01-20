@@ -6,19 +6,25 @@
 #
 # Description: Rename files that matches a PATTERN from behind to match pattern with SUFIX and POSTFIX, while PATTERN is removed.
 # 
-# Example: Files mathing *file.xyz are renamed to document-1.txt
+# Example: Files matching *file.xyz are renamed to document-*.txt
+#         
+#   rf.sh -t -file.xyz -s document- -p .txt
+
+_help="
+Rename files that matches a PATTERN from behind to match pattern with SUFIX and POSTFIX, while PATTERN is removed.
+
+Syntax: rf [options]
+options:
+-h    Print this Help.
+-s    Prefix value
+-t    Pattern value
+-p    Postfix value
+
+"
 
 display_help() {
    # Dispaly Help
-   echo "Rename files that matches a PATTERN from behind to match pattern with SUFIX and POSTFIX, while PATTERN is removed."
-   echo
-   echo "Syntax: rf [options]"
-   echo "options:"
-   echo "-h    Print this Help."
-   echo "-s    Prefix value"
-   echo "-t    Pattern value"
-   echo "-p    Postfix value"
-   echo
+   echo "$_help"
 }
 
 parse_options() {
@@ -26,7 +32,7 @@ parse_options() {
         case $option in
             t)
                 PATTERN="$OPTARG"
-                continue;;
+                ;;
             p)
                 POSTFIX="$OPTARG"
                 ;;
@@ -34,13 +40,12 @@ parse_options() {
                 SUFIX="$OPTARG"
                 ;;
             h) # display Help
-                echo "help"
                 display_help
-                exit;;
+                exit 2;;
             \?) # incorrect option
                 echo "Error: Invalid option"
                 display_help
-                exit;;
+                exit 1;;
         esac
     done
 }
@@ -62,6 +67,10 @@ POSTFIX=""
 SUFIX=""
 
 parse_options "$@"
+if [ "$PATTERN" = "" ]; then
+    echo "Nothing to match. See rf -h"
+    exit 1
+fi
 rename_files
 
 
