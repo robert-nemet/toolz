@@ -1,3 +1,5 @@
+![QualityCRTL](https://github.com/actions/robert-nemet/toolz/workflows/QualityCRTL/badge.svg)
+  
 # toolz
 
 Just another set of cli toolz
