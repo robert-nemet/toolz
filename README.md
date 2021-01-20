@@ -1,4 +1,4 @@
-![QualityCRTL](https://github.com/actions/robert-nemet/toolz/workflows/QualityCRTL/badge.svg)
+![QualityCTRL](https://github.com/robert-nemet/toolz/workflows/QualityCTRL/badge.svg)
   
 # toolz
 
